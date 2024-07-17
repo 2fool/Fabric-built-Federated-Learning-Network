@@ -1,0 +1,63 @@
+---
+name: test-network-web
+version: 1.0.0
+client:
+  organization: web
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  web:
+    mspid: webMSP
+    peers:
+    - peer1.web.ifantasy.net
+    certificateAuthorities:
+    - web.ifantasy.net
+peers:
+  peer1.web.ifantasy.net:
+    url: grpcs://peer1.web.ifantasy.net:7451
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICHjCCAcWgAwIBAgIUUOwPlGeWnm1Hj8A+vIyVDA8VNJMwCgYIKoZIzj0EAwIw
+          bDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMR0wGwYDVQQDExRjb3VuY2ls
+          LmlmYW50YXN5Lm5ldDAeFw0yNDA3MDgxMTE4MDBaFw0zOTA3MDUxMTE4MDBaMGwx
+          CzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChML
+          SHlwZXJsZWRnZXIxDzANBgNVBAsTBkZhYnJpYzEdMBsGA1UEAxMUY291bmNpbC5p
+          ZmFudGFzeS5uZXQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATxKmmMIYsqrWni
+          2JyLMoVKdDx78+FdSzvzg7yPj0IACRDcQ7sAkvzjyT2SW460nR1wcORAwgiGJx8T
+          n3lfOkHko0UwQzAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIBATAd
+          BgNVHQ4EFgQUGr5v5xToeZFOi5w0K88TsEKxtEkwCgYIKoZIzj0EAwIDRwAwRAIg
+          IsTrAKDFUGhvJQTC9ho5PKbyhXOn0MpJT/17Gjc73ycCIFMQttyYa7qEOrhU3D6K
+          lxbX9bcMAxatmmfRX9/R4Gw/
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer1.web.ifantasy.net
+      hostnameOverride: peer1.web.ifantasy.net
+certificateAuthorities:
+  web.ifantasy.net:
+    url: https://web.ifantasy.net:7450
+    caName: web.ifantasy.net
+    tlsCACerts:
+      pem: 
+        - |
+          -----BEGIN CERTIFICATE-----
+          MIICGTCCAb+gAwIBAgIUduChY5TYq1JkDbCDNHNN/kipq5MwCgYIKoZIzj0EAwIw
+          aTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+          EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRowGAYDVQQDExFoYXJkLmlm
+          YW50YXN5Lm5ldDAeFw0yNDA3MDgxMTE4MDBaFw0zOTA3MDUxMTE4MDBaMGkxCzAJ
+          BgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlw
+          ZXJsZWRnZXIxDzANBgNVBAsTBkZhYnJpYzEaMBgGA1UEAxMRaGFyZC5pZmFudGFz
+          eS5uZXQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARVMb4iUqDqaRNdAjJ7+Wuk
+          sjxL9SKGPTHrcZ7dI//mJcj800GKw3g8mkAKGbTK1RHtHg6DKHhCikrQ381Fi3z+
+          o0UwQzAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4E
+          FgQUevXOaESMD0Ty/lrpq4rpPEXvFcQwCgYIKoZIzj0EAwIDSAAwRQIhAJA5XT0Q
+          Hy1SbTNbiGM/U0AtHj9Nbd2Of0Kiyn1Oc6ezAiBAq1d5YPUvx4XkVnq5NspECl1+
+          xNY/g0yGA7OOzDumAQ==
+          -----END CERTIFICATE-----
+          
+    httpOptions:
+      verify: false
